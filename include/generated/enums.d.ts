@@ -341,6 +341,67 @@ declare namespace Enum {
 	}
 	export type ActuatorType = ActuatorType.None | ActuatorType.Motor | ActuatorType.Servo;
 
+	export namespace AdAvailabilityResult {
+		export interface IsAvailable extends globalThis.EnumItem {
+			Name: "IsAvailable";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.AdAvailabilityResult;
+		}
+
+		export const IsAvailable: IsAvailable;
+
+		export interface DeviceIneligible extends globalThis.EnumItem {
+			Name: "DeviceIneligible";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.AdAvailabilityResult;
+		}
+
+		export const DeviceIneligible: DeviceIneligible;
+
+		export interface ExperienceIneligible extends globalThis.EnumItem {
+			Name: "ExperienceIneligible";
+			Value: 3;
+			EnumType: typeof globalThis.Enum.AdAvailabilityResult;
+		}
+
+		export const ExperienceIneligible: ExperienceIneligible;
+
+		export interface InternalError extends globalThis.EnumItem {
+			Name: "InternalError";
+			Value: 4;
+			EnumType: typeof globalThis.Enum.AdAvailabilityResult;
+		}
+
+		export const InternalError: InternalError;
+
+		export interface NoFill extends globalThis.EnumItem {
+			Name: "NoFill";
+			Value: 5;
+			EnumType: typeof globalThis.Enum.AdAvailabilityResult;
+		}
+
+		export const NoFill: NoFill;
+
+		export interface PlayerIneligible extends globalThis.EnumItem {
+			Name: "PlayerIneligible";
+			Value: 6;
+			EnumType: typeof globalThis.Enum.AdAvailabilityResult;
+		}
+
+		export const PlayerIneligible: PlayerIneligible;
+
+		export interface PublisherIneligible extends globalThis.EnumItem {
+			Name: "PublisherIneligible";
+			Value: 7;
+			EnumType: typeof globalThis.Enum.AdAvailabilityResult;
+		}
+
+		export const PublisherIneligible: PublisherIneligible;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AdAvailabilityResult>;
+	}
+	export type AdAvailabilityResult = AdAvailabilityResult.IsAvailable | AdAvailabilityResult.DeviceIneligible | AdAvailabilityResult.ExperienceIneligible | AdAvailabilityResult.InternalError | AdAvailabilityResult.NoFill | AdAvailabilityResult.PlayerIneligible | AdAvailabilityResult.PublisherIneligible;
+
 	export namespace AdEventType {
 		export interface RewardedAdLoaded extends globalThis.EnumItem {
 			Name: "RewardedAdLoaded";
@@ -393,6 +454,19 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AdEventType>;
 	}
 	export type AdEventType = AdEventType.RewardedAdLoaded | AdEventType.RewardedAdGrant | AdEventType.RewardedAdUnloaded | AdEventType.VideoLoaded | AdEventType.VideoRemoved | AdEventType.UserCompletedVideo;
+
+	export namespace AdFormat {
+		export interface RewardedVideo extends globalThis.EnumItem {
+			Name: "RewardedVideo";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.AdFormat;
+		}
+
+		export const RewardedVideo: RewardedVideo;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AdFormat>;
+	}
+	export type AdFormat = AdFormat.RewardedVideo;
 
 	export namespace AdShape {
 		export interface HorizontalRectangle extends globalThis.EnumItem {
@@ -501,9 +575,25 @@ declare namespace Enum {
 
 		export const WhyThisAdClicked: WhyThisAdClicked;
 
+		export interface PlayEventTriggered extends globalThis.EnumItem {
+			Name: "PlayEventTriggered";
+			Value: 7;
+			EnumType: typeof globalThis.Enum.AdUIEventType;
+		}
+
+		export const PlayEventTriggered: PlayEventTriggered;
+
+		export interface PauseEventTriggered extends globalThis.EnumItem {
+			Name: "PauseEventTriggered";
+			Value: 8;
+			EnumType: typeof globalThis.Enum.AdUIEventType;
+		}
+
+		export const PauseEventTriggered: PauseEventTriggered;
+
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AdUIEventType>;
 	}
-	export type AdUIEventType = AdUIEventType.AdLabelClicked | AdUIEventType.VolumeButtonClicked | AdUIEventType.FullscreenButtonClicked | AdUIEventType.PlayButtonClicked | AdUIEventType.PauseButtonClicked | AdUIEventType.CloseButtonClicked | AdUIEventType.WhyThisAdClicked;
+	export type AdUIEventType = AdUIEventType.AdLabelClicked | AdUIEventType.VolumeButtonClicked | AdUIEventType.FullscreenButtonClicked | AdUIEventType.PlayButtonClicked | AdUIEventType.PauseButtonClicked | AdUIEventType.CloseButtonClicked | AdUIEventType.WhyThisAdClicked | AdUIEventType.PlayEventTriggered | AdUIEventType.PauseEventTriggered;
 
 	export namespace AdUIType {
 		export interface None extends globalThis.EnumItem {
@@ -1136,6 +1226,80 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AnnotationEditingMode>;
 	}
 	export type AnnotationEditingMode = AnnotationEditingMode.None | AnnotationEditingMode.PlacingNew | AnnotationEditingMode.WritingNew;
+
+	export namespace AnnotationRequestResult {
+		export interface Success extends globalThis.EnumItem {
+			Name: "Success";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.AnnotationRequestResult;
+		}
+
+		export const Success: Success;
+
+		export interface ErrorInternalFailure extends globalThis.EnumItem {
+			Name: "ErrorInternalFailure";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.AnnotationRequestResult;
+		}
+
+		export const ErrorInternalFailure: ErrorInternalFailure;
+
+		export interface ErrorNotFound extends globalThis.EnumItem {
+			Name: "ErrorNotFound";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.AnnotationRequestResult;
+		}
+
+		export const ErrorNotFound: ErrorNotFound;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AnnotationRequestResult>;
+	}
+	export type AnnotationRequestResult = AnnotationRequestResult.Success | AnnotationRequestResult.ErrorInternalFailure | AnnotationRequestResult.ErrorNotFound;
+
+	export namespace AnnotationRequestType {
+		export interface Unknown extends globalThis.EnumItem {
+			Name: "Unknown";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.AnnotationRequestType;
+		}
+
+		export const Unknown: Unknown;
+
+		export interface Create extends globalThis.EnumItem {
+			Name: "Create";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.AnnotationRequestType;
+		}
+
+		export const Create: Create;
+
+		export interface Resolve extends globalThis.EnumItem {
+			Name: "Resolve";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.AnnotationRequestType;
+		}
+
+		export const Resolve: Resolve;
+
+		export interface Delete extends globalThis.EnumItem {
+			Name: "Delete";
+			Value: 3;
+			EnumType: typeof globalThis.Enum.AnnotationRequestType;
+		}
+
+		export const Delete: Delete;
+
+		export interface Edit extends globalThis.EnumItem {
+			Name: "Edit";
+			Value: 4;
+			EnumType: typeof globalThis.Enum.AnnotationRequestType;
+		}
+
+		export const Edit: Edit;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AnnotationRequestType>;
+	}
+	export type AnnotationRequestType = AnnotationRequestType.Unknown | AnnotationRequestType.Create | AnnotationRequestType.Resolve | AnnotationRequestType.Delete | AnnotationRequestType.Edit;
 
 	export namespace AppLifecycleManagerState {
 		export interface Detached extends globalThis.EnumItem {
@@ -2121,6 +2285,27 @@ declare namespace Enum {
 	}
 	export type AudioFilterType = AudioFilterType.Peak | AudioFilterType.LowShelf | AudioFilterType.HighShelf | AudioFilterType.Lowpass12dB | AudioFilterType.Lowpass24dB | AudioFilterType.Lowpass48dB | AudioFilterType.Highpass12dB | AudioFilterType.Highpass24dB | AudioFilterType.Highpass48dB | AudioFilterType.Bandpass | AudioFilterType.Notch;
 
+	export namespace AudioSimulationFidelity {
+		export interface None extends globalThis.EnumItem {
+			Name: "None";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.AudioSimulationFidelity;
+		}
+
+		export const None: None;
+
+		export interface Automatic extends globalThis.EnumItem {
+			Name: "Automatic";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.AudioSimulationFidelity;
+		}
+
+		export const Automatic: Automatic;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AudioSimulationFidelity>;
+	}
+	export type AudioSimulationFidelity = AudioSimulationFidelity.None | AudioSimulationFidelity.Automatic;
+
 	export namespace AudioSubType {
 		export interface Music extends globalThis.EnumItem {
 			Name: "Music";
@@ -2776,35 +2961,6 @@ declare namespace Enum {
 	}
 	export type AvatarItemType = AvatarItemType.Asset | AvatarItemType.Bundle;
 
-	export namespace AvatarJointUpgrade {
-		export interface Default extends globalThis.EnumItem {
-			Name: "Default";
-			Value: 0;
-			EnumType: typeof globalThis.Enum.AvatarJointUpgrade;
-		}
-
-		export const Default: Default;
-
-		export interface Enabled extends globalThis.EnumItem {
-			Name: "Enabled";
-			Value: 1;
-			EnumType: typeof globalThis.Enum.AvatarJointUpgrade;
-		}
-
-		export const Enabled: Enabled;
-
-		export interface Disabled extends globalThis.EnumItem {
-			Name: "Disabled";
-			Value: 2;
-			EnumType: typeof globalThis.Enum.AvatarJointUpgrade;
-		}
-
-		export const Disabled: Disabled;
-
-		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.AvatarJointUpgrade>;
-	}
-	export type AvatarJointUpgrade = AvatarJointUpgrade.Default | AvatarJointUpgrade.Enabled | AvatarJointUpgrade.Disabled;
-
 	export namespace AvatarPromptResult {
 		export interface Success extends globalThis.EnumItem {
 			Name: "Success";
@@ -2924,6 +3080,35 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.Axis>;
 	}
 	export type Axis = Axis.X | Axis.Y | Axis.Z;
+
+	export namespace BenefitType {
+		export interface DeveloperProduct extends globalThis.EnumItem {
+			Name: "DeveloperProduct";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.BenefitType;
+		}
+
+		export const DeveloperProduct: DeveloperProduct;
+
+		export interface AvatarAsset extends globalThis.EnumItem {
+			Name: "AvatarAsset";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.BenefitType;
+		}
+
+		export const AvatarAsset: AvatarAsset;
+
+		export interface AvatarBundle extends globalThis.EnumItem {
+			Name: "AvatarBundle";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.BenefitType;
+		}
+
+		export const AvatarBundle: AvatarBundle;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.BenefitType>;
+	}
+	export type BenefitType = BenefitType.DeveloperProduct | BenefitType.AvatarAsset | BenefitType.AvatarBundle;
 
 	export namespace BinType {
 		export interface Script extends globalThis.EnumItem {
@@ -3404,35 +3589,6 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.ButtonStyle>;
 	}
 	export type ButtonStyle = ButtonStyle.Custom | ButtonStyle.RobloxButtonDefault | ButtonStyle.RobloxButton | ButtonStyle.RobloxRoundButton | ButtonStyle.RobloxRoundDefaultButton | ButtonStyle.RobloxRoundDropdownButton;
-
-	export namespace CSGAsyncDynamicCollision {
-		export interface Default extends globalThis.EnumItem {
-			Name: "Default";
-			Value: 0;
-			EnumType: typeof globalThis.Enum.CSGAsyncDynamicCollision;
-		}
-
-		export const Default: Default;
-
-		export interface Disabled extends globalThis.EnumItem {
-			Name: "Disabled";
-			Value: 1;
-			EnumType: typeof globalThis.Enum.CSGAsyncDynamicCollision;
-		}
-
-		export const Disabled: Disabled;
-
-		export interface Enabled extends globalThis.EnumItem {
-			Name: "Enabled";
-			Value: 2;
-			EnumType: typeof globalThis.Enum.CSGAsyncDynamicCollision;
-		}
-
-		export const Enabled: Enabled;
-
-		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.CSGAsyncDynamicCollision>;
-	}
-	export type CSGAsyncDynamicCollision = CSGAsyncDynamicCollision.Default | CSGAsyncDynamicCollision.Disabled | CSGAsyncDynamicCollision.Enabled;
 
 	export namespace CageType {
 		export interface Inner extends globalThis.EnumItem {
@@ -4477,6 +4633,43 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.CompileTarget>;
 	}
 	export type CompileTarget = CompileTarget.Client | CompileTarget.CoreScript | CompileTarget.Studio | CompileTarget.CoreScriptRaw;
+
+	export namespace CompletionAcceptanceBehavior {
+		export interface Insert extends globalThis.EnumItem {
+			Name: "Insert";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.CompletionAcceptanceBehavior;
+		}
+
+		export const Insert: Insert;
+
+		export interface Replace extends globalThis.EnumItem {
+			Name: "Replace";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.CompletionAcceptanceBehavior;
+		}
+
+		export const Replace: Replace;
+
+		export interface ReplaceOnEnterInsertOnTab extends globalThis.EnumItem {
+			Name: "ReplaceOnEnterInsertOnTab";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.CompletionAcceptanceBehavior;
+		}
+
+		export const ReplaceOnEnterInsertOnTab: ReplaceOnEnterInsertOnTab;
+
+		export interface InsertOnEnterReplaceOnTab extends globalThis.EnumItem {
+			Name: "InsertOnEnterReplaceOnTab";
+			Value: 3;
+			EnumType: typeof globalThis.Enum.CompletionAcceptanceBehavior;
+		}
+
+		export const InsertOnEnterReplaceOnTab: InsertOnEnterReplaceOnTab;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.CompletionAcceptanceBehavior>;
+	}
+	export type CompletionAcceptanceBehavior = CompletionAcceptanceBehavior.Insert | CompletionAcceptanceBehavior.Replace | CompletionAcceptanceBehavior.ReplaceOnEnterInsertOnTab | CompletionAcceptanceBehavior.InsertOnEnterReplaceOnTab;
 
 	export namespace CompletionItemKind {
 		export interface Text extends globalThis.EnumItem {
@@ -5652,6 +5845,43 @@ declare namespace Enum {
 	}
 	export type CoreGuiType = CoreGuiType.PlayerList | CoreGuiType.Health | CoreGuiType.Backpack | CoreGuiType.Chat | CoreGuiType.All | CoreGuiType.EmotesMenu | CoreGuiType.SelfView | CoreGuiType.Captures;
 
+	export namespace CreateAssetResult {
+		export interface Success extends globalThis.EnumItem {
+			Name: "Success";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.CreateAssetResult;
+		}
+
+		export const Success: Success;
+
+		export interface PermissionDenied extends globalThis.EnumItem {
+			Name: "PermissionDenied";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.CreateAssetResult;
+		}
+
+		export const PermissionDenied: PermissionDenied;
+
+		export interface UploadFailed extends globalThis.EnumItem {
+			Name: "UploadFailed";
+			Value: 3;
+			EnumType: typeof globalThis.Enum.CreateAssetResult;
+		}
+
+		export const UploadFailed: UploadFailed;
+
+		export interface Unknown extends globalThis.EnumItem {
+			Name: "Unknown";
+			Value: 4;
+			EnumType: typeof globalThis.Enum.CreateAssetResult;
+		}
+
+		export const Unknown: Unknown;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.CreateAssetResult>;
+	}
+	export type CreateAssetResult = CreateAssetResult.Success | CreateAssetResult.PermissionDenied | CreateAssetResult.UploadFailed | CreateAssetResult.Unknown;
+
 	export namespace CreateOutfitFailure {
 		export interface InvalidName extends globalThis.EnumItem {
 			Name: "InvalidName";
@@ -6115,35 +6345,6 @@ declare namespace Enum {
 	}
 	export type DebuggerStatus = DebuggerStatus.Success | DebuggerStatus.Timeout | DebuggerStatus.ConnectionLost | DebuggerStatus.InvalidResponse | DebuggerStatus.InternalError | DebuggerStatus.InvalidState | DebuggerStatus.RpcError | DebuggerStatus.InvalidArgument | DebuggerStatus.ConnectionClosed;
 
-	export namespace DecreaseMinimumPartDensityMode {
-		export interface Default extends globalThis.EnumItem {
-			Name: "Default";
-			Value: 0;
-			EnumType: typeof globalThis.Enum.DecreaseMinimumPartDensityMode;
-		}
-
-		export const Default: Default;
-
-		export interface Disabled extends globalThis.EnumItem {
-			Name: "Disabled";
-			Value: 1;
-			EnumType: typeof globalThis.Enum.DecreaseMinimumPartDensityMode;
-		}
-
-		export const Disabled: Disabled;
-
-		export interface Enabled extends globalThis.EnumItem {
-			Name: "Enabled";
-			Value: 2;
-			EnumType: typeof globalThis.Enum.DecreaseMinimumPartDensityMode;
-		}
-
-		export const Enabled: Enabled;
-
-		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.DecreaseMinimumPartDensityMode>;
-	}
-	export type DecreaseMinimumPartDensityMode = DecreaseMinimumPartDensityMode.Default | DecreaseMinimumPartDensityMode.Disabled | DecreaseMinimumPartDensityMode.Enabled;
-
 	export namespace DevCameraOcclusionMode {
 		export interface Zoom extends globalThis.EnumItem {
 			Name: "Zoom";
@@ -6547,6 +6748,51 @@ declare namespace Enum {
 	}
 	export type DeviceFeatureType = DeviceFeatureType.DeviceCapture;
 
+	export namespace DeviceForm {
+		export interface Console extends globalThis.EnumItem {
+			Name: "Console";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.DeviceForm;
+		}
+
+		export const Console: Console;
+
+		export interface Phone extends globalThis.EnumItem {
+			Name: "Phone";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.DeviceForm;
+		}
+
+		export const Phone: Phone;
+
+		export interface Tablet extends globalThis.EnumItem {
+			Name: "Tablet";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.DeviceForm;
+		}
+
+		export const Tablet: Tablet;
+
+		export interface Desktop extends globalThis.EnumItem {
+			Name: "Desktop";
+			Value: 3;
+			EnumType: typeof globalThis.Enum.DeviceForm;
+		}
+
+		export const Desktop: Desktop;
+
+		export interface VR extends globalThis.EnumItem {
+			Name: "VR";
+			Value: 4;
+			EnumType: typeof globalThis.Enum.DeviceForm;
+		}
+
+		export const VR: VR;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.DeviceForm>;
+	}
+	export type DeviceForm = DeviceForm.Console | DeviceForm.Phone | DeviceForm.Tablet | DeviceForm.Desktop | DeviceForm.VR;
+
 	export namespace DeviceLevel {
 		export interface Low extends globalThis.EnumItem {
 			Name: "Low";
@@ -6926,6 +7172,35 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.DraggerMovementMode>;
 	}
 	export type DraggerMovementMode = DraggerMovementMode.Geometric | DraggerMovementMode.Physical;
+
+	export namespace DraggingScrollBar {
+		export interface None extends globalThis.EnumItem {
+			Name: "None";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.DraggingScrollBar;
+		}
+
+		export const None: None;
+
+		export interface Horizontal extends globalThis.EnumItem {
+			Name: "Horizontal";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.DraggingScrollBar;
+		}
+
+		export const Horizontal: Horizontal;
+
+		export interface Vertical extends globalThis.EnumItem {
+			Name: "Vertical";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.DraggingScrollBar;
+		}
+
+		export const Vertical: Vertical;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.DraggingScrollBar>;
+	}
+	export type DraggingScrollBar = DraggingScrollBar.None | DraggingScrollBar.Horizontal | DraggingScrollBar.Vertical;
 
 	export namespace EasingDirection {
 		export interface In extends globalThis.EnumItem {
@@ -8983,9 +9258,17 @@ declare namespace Enum {
 	export type HandlesStyle = HandlesStyle.Resize | HandlesStyle.Movement;
 
 	export namespace HapticEffectType {
+		export interface Custom extends globalThis.EnumItem {
+			Name: "Custom";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.HapticEffectType;
+		}
+
+		export const Custom: Custom;
+
 		export interface UIHover extends globalThis.EnumItem {
 			Name: "UIHover";
-			Value: 0;
+			Value: 1;
 			EnumType: typeof globalThis.Enum.HapticEffectType;
 		}
 
@@ -8993,7 +9276,7 @@ declare namespace Enum {
 
 		export interface UIClick extends globalThis.EnumItem {
 			Name: "UIClick";
-			Value: 1;
+			Value: 2;
 			EnumType: typeof globalThis.Enum.HapticEffectType;
 		}
 
@@ -9001,7 +9284,7 @@ declare namespace Enum {
 
 		export interface UINotification extends globalThis.EnumItem {
 			Name: "UINotification";
-			Value: 2;
+			Value: 3;
 			EnumType: typeof globalThis.Enum.HapticEffectType;
 		}
 
@@ -9009,7 +9292,7 @@ declare namespace Enum {
 
 		export interface GameplayExplosion extends globalThis.EnumItem {
 			Name: "GameplayExplosion";
-			Value: 3;
+			Value: 4;
 			EnumType: typeof globalThis.Enum.HapticEffectType;
 		}
 
@@ -9017,7 +9300,7 @@ declare namespace Enum {
 
 		export interface GameplayCollision extends globalThis.EnumItem {
 			Name: "GameplayCollision";
-			Value: 4;
+			Value: 5;
 			EnumType: typeof globalThis.Enum.HapticEffectType;
 		}
 
@@ -9025,7 +9308,7 @@ declare namespace Enum {
 
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.HapticEffectType>;
 	}
-	export type HapticEffectType = HapticEffectType.UIHover | HapticEffectType.UIClick | HapticEffectType.UINotification | HapticEffectType.GameplayExplosion | HapticEffectType.GameplayCollision;
+	export type HapticEffectType = HapticEffectType.Custom | HapticEffectType.UIHover | HapticEffectType.UIClick | HapticEffectType.UINotification | HapticEffectType.GameplayExplosion | HapticEffectType.GameplayCollision;
 
 	export namespace HighlightDepthMode {
 		export interface AlwaysOnTop extends globalThis.EnumItem {
@@ -10043,27 +10326,6 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.InputType>;
 	}
 	export type InputType = InputType.NoInput | InputType.Constant | InputType.Sin;
-
-	export namespace Intent {
-		export interface Realistic extends globalThis.EnumItem {
-			Name: "Realistic";
-			Value: 0;
-			EnumType: typeof globalThis.Enum.Intent;
-		}
-
-		export const Realistic: Realistic;
-
-		export interface Flat extends globalThis.EnumItem {
-			Name: "Flat";
-			Value: 1;
-			EnumType: typeof globalThis.Enum.Intent;
-		}
-
-		export const Flat: Flat;
-
-		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.Intent>;
-	}
-	export type Intent = Intent.Realistic | Intent.Flat;
 
 	export namespace InterpolationThrottlingMode {
 		export interface Default extends globalThis.EnumItem {
@@ -12559,6 +12821,27 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.LexemeType>;
 	}
 	export type LexemeType = LexemeType.Eof | LexemeType.Name | LexemeType.QuotedString | LexemeType.Number | LexemeType.And | LexemeType.Or | LexemeType.Equal | LexemeType.TildeEqual | LexemeType.GreaterThan | LexemeType.GreaterThanEqual | LexemeType.LessThan | LexemeType.LessThanEqual | LexemeType.Colon | LexemeType.Dot | LexemeType.LeftParenthesis | LexemeType.RightParenthesis | LexemeType.Star | LexemeType.DoubleStar | LexemeType.ReservedSpecial;
+
+	export namespace LightingStyle {
+		export interface Realistic extends globalThis.EnumItem {
+			Name: "Realistic";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.LightingStyle;
+		}
+
+		export const Realistic: Realistic;
+
+		export interface Soft extends globalThis.EnumItem {
+			Name: "Soft";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.LightingStyle;
+		}
+
+		export const Soft: Soft;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.LightingStyle>;
+	}
+	export type LightingStyle = LightingStyle.Realistic | LightingStyle.Soft;
 
 	export namespace Limb {
 		export interface Head extends globalThis.EnumItem {
@@ -15613,6 +15896,27 @@ declare namespace Enum {
 	}
 	export type ProductLocationRestriction = ProductLocationRestriction.AvatarShop | ProductLocationRestriction.AllowedGames | ProductLocationRestriction.AllGames;
 
+	export namespace ProductPurchaseChannel {
+		export interface InExperience extends globalThis.EnumItem {
+			Name: "InExperience";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.ProductPurchaseChannel;
+		}
+
+		export const InExperience: InExperience;
+
+		export interface ExperienceDetailsPage extends globalThis.EnumItem {
+			Name: "ExperienceDetailsPage";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.ProductPurchaseChannel;
+		}
+
+		export const ExperienceDetailsPage: ExperienceDetailsPage;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.ProductPurchaseChannel>;
+	}
+	export type ProductPurchaseChannel = ProductPurchaseChannel.InExperience | ProductPurchaseChannel.ExperienceDetailsPage;
+
 	export namespace ProductPurchaseDecision {
 		export interface NotProcessedYet extends globalThis.EnumItem {
 			Name: "NotProcessedYet";
@@ -15760,17 +16064,33 @@ declare namespace Enum {
 
 		export const MaxOutfits: MaxOutfits;
 
+		export interface PurchaseFailure extends globalThis.EnumItem {
+			Name: "PurchaseFailure";
+			Value: 10;
+			EnumType: typeof globalThis.Enum.PromptCreateAvatarResult;
+		}
+
+		export const PurchaseFailure: PurchaseFailure;
+
 		export interface UnknownFailure extends globalThis.EnumItem {
 			Name: "UnknownFailure";
-			Value: 10;
+			Value: 11;
 			EnumType: typeof globalThis.Enum.PromptCreateAvatarResult;
 		}
 
 		export const UnknownFailure: UnknownFailure;
 
+		export interface TokenInvalid extends globalThis.EnumItem {
+			Name: "TokenInvalid";
+			Value: 12;
+			EnumType: typeof globalThis.Enum.PromptCreateAvatarResult;
+		}
+
+		export const TokenInvalid: TokenInvalid;
+
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.PromptCreateAvatarResult>;
 	}
-	export type PromptCreateAvatarResult = PromptCreateAvatarResult.Success | PromptCreateAvatarResult.PermissionDenied | PromptCreateAvatarResult.Timeout | PromptCreateAvatarResult.UploadFailed | PromptCreateAvatarResult.NoUserInput | PromptCreateAvatarResult.InvalidHumanoidDescription | PromptCreateAvatarResult.UGCValidationFailed | PromptCreateAvatarResult.ModeratedName | PromptCreateAvatarResult.MaxOutfits | PromptCreateAvatarResult.UnknownFailure;
+	export type PromptCreateAvatarResult = PromptCreateAvatarResult.Success | PromptCreateAvatarResult.PermissionDenied | PromptCreateAvatarResult.Timeout | PromptCreateAvatarResult.UploadFailed | PromptCreateAvatarResult.NoUserInput | PromptCreateAvatarResult.InvalidHumanoidDescription | PromptCreateAvatarResult.UGCValidationFailed | PromptCreateAvatarResult.ModeratedName | PromptCreateAvatarResult.MaxOutfits | PromptCreateAvatarResult.PurchaseFailure | PromptCreateAvatarResult.UnknownFailure | PromptCreateAvatarResult.TokenInvalid;
 
 	export namespace PromptPublishAssetResult {
 		export interface Success extends globalThis.EnumItem {
@@ -15932,27 +16252,6 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.ProximityPromptStyle>;
 	}
 	export type ProximityPromptStyle = ProximityPromptStyle.Default | ProximityPromptStyle.Custom;
-
-	export namespace Quality {
-		export interface Performance extends globalThis.EnumItem {
-			Name: "Performance";
-			Value: 0;
-			EnumType: typeof globalThis.Enum.Quality;
-		}
-
-		export const Performance: Performance;
-
-		export interface Quality extends globalThis.EnumItem {
-			Name: "Quality";
-			Value: 1;
-			EnumType: typeof globalThis.Enum.Quality;
-		}
-
-		export const Quality: Quality;
-
-		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.Quality>;
-	}
-	export type Quality = Quality.Performance | Quality.Quality;
 
 	export namespace QualityLevel {
 		export interface Automatic extends globalThis.EnumItem {
@@ -17165,6 +17464,27 @@ declare namespace Enum {
 	}
 	export type SalesTypeFilter = SalesTypeFilter.All | SalesTypeFilter.Collectibles | SalesTypeFilter.Premium;
 
+	export namespace SandboxedInstanceMode {
+		export interface Default extends globalThis.EnumItem {
+			Name: "Default";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.SandboxedInstanceMode;
+		}
+
+		export const Default: Default;
+
+		export interface Experimental extends globalThis.EnumItem {
+			Name: "Experimental";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.SandboxedInstanceMode;
+		}
+
+		export const Experimental: Experimental;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.SandboxedInstanceMode>;
+	}
+	export type SandboxedInstanceMode = SandboxedInstanceMode.Default | SandboxedInstanceMode.Experimental;
+
 	export namespace SaveAvatarThumbnailCustomizationFailure {
 		export interface BadThumbnailType extends globalThis.EnumItem {
 			Name: "BadThumbnailType";
@@ -17755,9 +18075,17 @@ declare namespace Enum {
 
 		export const RemoteEvent: RemoteEvent;
 
+		export interface LegacySound extends globalThis.EnumItem {
+			Name: "LegacySound";
+			Value: 20;
+			EnumType: typeof globalThis.Enum.SecurityCapability;
+		}
+
+		export const LegacySound: LegacySound;
+
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.SecurityCapability>;
 	}
-	export type SecurityCapability = SecurityCapability.RunClientScript | SecurityCapability.RunServerScript | SecurityCapability.AccessOutsideWrite | SecurityCapability.AssetRequire | SecurityCapability.LoadString | SecurityCapability.ScriptGlobals | SecurityCapability.CreateInstances | SecurityCapability.Basic | SecurityCapability.Audio | SecurityCapability.DataStore | SecurityCapability.Network | SecurityCapability.Physics | SecurityCapability.UI | SecurityCapability.CSG | SecurityCapability.Chat | SecurityCapability.Animation | SecurityCapability.Avatar | SecurityCapability.Input | SecurityCapability.Environment | SecurityCapability.RemoteEvent;
+	export type SecurityCapability = SecurityCapability.RunClientScript | SecurityCapability.RunServerScript | SecurityCapability.AccessOutsideWrite | SecurityCapability.AssetRequire | SecurityCapability.LoadString | SecurityCapability.ScriptGlobals | SecurityCapability.CreateInstances | SecurityCapability.Basic | SecurityCapability.Audio | SecurityCapability.DataStore | SecurityCapability.Network | SecurityCapability.Physics | SecurityCapability.UI | SecurityCapability.CSG | SecurityCapability.Chat | SecurityCapability.Animation | SecurityCapability.Avatar | SecurityCapability.Input | SecurityCapability.Environment | SecurityCapability.RemoteEvent | SecurityCapability.LegacySound;
 
 	export namespace SelectionBehavior {
 		export interface Escape extends globalThis.EnumItem {
@@ -17990,6 +18318,51 @@ declare namespace Enum {
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.Severity>;
 	}
 	export type Severity = Severity.Error | Severity.Warning | Severity.Information | Severity.Hint;
+
+	export namespace ShowAdResult {
+		export interface ShowCompleted extends globalThis.EnumItem {
+			Name: "ShowCompleted";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.ShowAdResult;
+		}
+
+		export const ShowCompleted: ShowCompleted;
+
+		export interface AdNotReady extends globalThis.EnumItem {
+			Name: "AdNotReady";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.ShowAdResult;
+		}
+
+		export const AdNotReady: AdNotReady;
+
+		export interface AdAlreadyShowing extends globalThis.EnumItem {
+			Name: "AdAlreadyShowing";
+			Value: 3;
+			EnumType: typeof globalThis.Enum.ShowAdResult;
+		}
+
+		export const AdAlreadyShowing: AdAlreadyShowing;
+
+		export interface InternalError extends globalThis.EnumItem {
+			Name: "InternalError";
+			Value: 4;
+			EnumType: typeof globalThis.Enum.ShowAdResult;
+		}
+
+		export const InternalError: InternalError;
+
+		export interface ShowInterrupted extends globalThis.EnumItem {
+			Name: "ShowInterrupted";
+			Value: 5;
+			EnumType: typeof globalThis.Enum.ShowAdResult;
+		}
+
+		export const ShowInterrupted: ShowInterrupted;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.ShowAdResult>;
+	}
+	export type ShowAdResult = ShowAdResult.ShowCompleted | ShowAdResult.AdNotReady | ShowAdResult.AdAlreadyShowing | ShowAdResult.InternalError | ShowAdResult.ShowInterrupted;
 
 	export namespace SignalBehavior {
 		export interface Default extends globalThis.EnumItem {
@@ -18723,9 +19096,17 @@ declare namespace Enum {
 
 		export const Bracket: Bracket;
 
+		export interface Type extends globalThis.EnumItem {
+			Name: "Type";
+			Value: 32;
+			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
+		}
+
+		export const Type: Type;
+
 		export interface MenuPrimaryText extends globalThis.EnumItem {
 			Name: "MenuPrimaryText";
-			Value: 32;
+			Value: 33;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18733,7 +19114,7 @@ declare namespace Enum {
 
 		export interface MenuSecondaryText extends globalThis.EnumItem {
 			Name: "MenuSecondaryText";
-			Value: 33;
+			Value: 34;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18741,7 +19122,7 @@ declare namespace Enum {
 
 		export interface MenuSelectedText extends globalThis.EnumItem {
 			Name: "MenuSelectedText";
-			Value: 34;
+			Value: 35;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18749,7 +19130,7 @@ declare namespace Enum {
 
 		export interface MenuBackground extends globalThis.EnumItem {
 			Name: "MenuBackground";
-			Value: 35;
+			Value: 36;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18757,7 +19138,7 @@ declare namespace Enum {
 
 		export interface MenuSelectedBackground extends globalThis.EnumItem {
 			Name: "MenuSelectedBackground";
-			Value: 36;
+			Value: 37;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18765,7 +19146,7 @@ declare namespace Enum {
 
 		export interface MenuScrollbarBackground extends globalThis.EnumItem {
 			Name: "MenuScrollbarBackground";
-			Value: 37;
+			Value: 38;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18773,7 +19154,7 @@ declare namespace Enum {
 
 		export interface MenuScrollbarHandle extends globalThis.EnumItem {
 			Name: "MenuScrollbarHandle";
-			Value: 38;
+			Value: 39;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18781,7 +19162,7 @@ declare namespace Enum {
 
 		export interface MenuBorder extends globalThis.EnumItem {
 			Name: "MenuBorder";
-			Value: 39;
+			Value: 40;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18789,7 +19170,7 @@ declare namespace Enum {
 
 		export interface DocViewCodeBackground extends globalThis.EnumItem {
 			Name: "DocViewCodeBackground";
-			Value: 40;
+			Value: 41;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18797,7 +19178,7 @@ declare namespace Enum {
 
 		export interface AICOOverlayText extends globalThis.EnumItem {
 			Name: "AICOOverlayText";
-			Value: 41;
+			Value: 42;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18805,7 +19186,7 @@ declare namespace Enum {
 
 		export interface AICOOverlayButtonBackground extends globalThis.EnumItem {
 			Name: "AICOOverlayButtonBackground";
-			Value: 42;
+			Value: 43;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18813,7 +19194,7 @@ declare namespace Enum {
 
 		export interface AICOOverlayButtonBackgroundHover extends globalThis.EnumItem {
 			Name: "AICOOverlayButtonBackgroundHover";
-			Value: 43;
+			Value: 44;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18821,7 +19202,7 @@ declare namespace Enum {
 
 		export interface AICOOverlayButtonBackgroundPressed extends globalThis.EnumItem {
 			Name: "AICOOverlayButtonBackgroundPressed";
-			Value: 44;
+			Value: 45;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18829,7 +19210,7 @@ declare namespace Enum {
 
 		export interface IndentationRuler extends globalThis.EnumItem {
 			Name: "IndentationRuler";
-			Value: 45;
+			Value: 46;
 			EnumType: typeof globalThis.Enum.StudioScriptEditorColorCategories;
 		}
 
@@ -18837,7 +19218,7 @@ declare namespace Enum {
 
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.StudioScriptEditorColorCategories>;
 	}
-	export type StudioScriptEditorColorCategories = StudioScriptEditorColorCategories.Default | StudioScriptEditorColorCategories.Operator | StudioScriptEditorColorCategories.Number | StudioScriptEditorColorCategories.String | StudioScriptEditorColorCategories.Comment | StudioScriptEditorColorCategories.Keyword | StudioScriptEditorColorCategories.Builtin | StudioScriptEditorColorCategories.Method | StudioScriptEditorColorCategories.Property | StudioScriptEditorColorCategories.Nil | StudioScriptEditorColorCategories.Bool | StudioScriptEditorColorCategories.Function | StudioScriptEditorColorCategories.Local | StudioScriptEditorColorCategories.Self | StudioScriptEditorColorCategories.LuauKeyword | StudioScriptEditorColorCategories.FunctionName | StudioScriptEditorColorCategories.TODO | StudioScriptEditorColorCategories.Background | StudioScriptEditorColorCategories.SelectionText | StudioScriptEditorColorCategories.SelectionBackground | StudioScriptEditorColorCategories.FindSelectionBackground | StudioScriptEditorColorCategories.MatchingWordBackground | StudioScriptEditorColorCategories.Warning | StudioScriptEditorColorCategories.Error | StudioScriptEditorColorCategories.Info | StudioScriptEditorColorCategories.Hint | StudioScriptEditorColorCategories.Whitespace | StudioScriptEditorColorCategories.ActiveLine | StudioScriptEditorColorCategories.DebuggerCurrentLine | StudioScriptEditorColorCategories.DebuggerErrorLine | StudioScriptEditorColorCategories.Ruler | StudioScriptEditorColorCategories.Bracket | StudioScriptEditorColorCategories.MenuPrimaryText | StudioScriptEditorColorCategories.MenuSecondaryText | StudioScriptEditorColorCategories.MenuSelectedText | StudioScriptEditorColorCategories.MenuBackground | StudioScriptEditorColorCategories.MenuSelectedBackground | StudioScriptEditorColorCategories.MenuScrollbarBackground | StudioScriptEditorColorCategories.MenuScrollbarHandle | StudioScriptEditorColorCategories.MenuBorder | StudioScriptEditorColorCategories.DocViewCodeBackground | StudioScriptEditorColorCategories.AICOOverlayText | StudioScriptEditorColorCategories.AICOOverlayButtonBackground | StudioScriptEditorColorCategories.AICOOverlayButtonBackgroundHover | StudioScriptEditorColorCategories.AICOOverlayButtonBackgroundPressed | StudioScriptEditorColorCategories.IndentationRuler;
+	export type StudioScriptEditorColorCategories = StudioScriptEditorColorCategories.Default | StudioScriptEditorColorCategories.Operator | StudioScriptEditorColorCategories.Number | StudioScriptEditorColorCategories.String | StudioScriptEditorColorCategories.Comment | StudioScriptEditorColorCategories.Keyword | StudioScriptEditorColorCategories.Builtin | StudioScriptEditorColorCategories.Method | StudioScriptEditorColorCategories.Property | StudioScriptEditorColorCategories.Nil | StudioScriptEditorColorCategories.Bool | StudioScriptEditorColorCategories.Function | StudioScriptEditorColorCategories.Local | StudioScriptEditorColorCategories.Self | StudioScriptEditorColorCategories.LuauKeyword | StudioScriptEditorColorCategories.FunctionName | StudioScriptEditorColorCategories.TODO | StudioScriptEditorColorCategories.Background | StudioScriptEditorColorCategories.SelectionText | StudioScriptEditorColorCategories.SelectionBackground | StudioScriptEditorColorCategories.FindSelectionBackground | StudioScriptEditorColorCategories.MatchingWordBackground | StudioScriptEditorColorCategories.Warning | StudioScriptEditorColorCategories.Error | StudioScriptEditorColorCategories.Info | StudioScriptEditorColorCategories.Hint | StudioScriptEditorColorCategories.Whitespace | StudioScriptEditorColorCategories.ActiveLine | StudioScriptEditorColorCategories.DebuggerCurrentLine | StudioScriptEditorColorCategories.DebuggerErrorLine | StudioScriptEditorColorCategories.Ruler | StudioScriptEditorColorCategories.Bracket | StudioScriptEditorColorCategories.Type | StudioScriptEditorColorCategories.MenuPrimaryText | StudioScriptEditorColorCategories.MenuSecondaryText | StudioScriptEditorColorCategories.MenuSelectedText | StudioScriptEditorColorCategories.MenuBackground | StudioScriptEditorColorCategories.MenuSelectedBackground | StudioScriptEditorColorCategories.MenuScrollbarBackground | StudioScriptEditorColorCategories.MenuScrollbarHandle | StudioScriptEditorColorCategories.MenuBorder | StudioScriptEditorColorCategories.DocViewCodeBackground | StudioScriptEditorColorCategories.AICOOverlayText | StudioScriptEditorColorCategories.AICOOverlayButtonBackground | StudioScriptEditorColorCategories.AICOOverlayButtonBackgroundHover | StudioScriptEditorColorCategories.AICOOverlayButtonBackgroundPressed | StudioScriptEditorColorCategories.IndentationRuler;
 
 	export namespace StudioScriptEditorColorPresets {
 		export interface RobloxDefault extends globalThis.EnumItem {
@@ -20355,6 +20736,35 @@ declare namespace Enum {
 	}
 	export type TableMajorAxis = TableMajorAxis.RowMajor | TableMajorAxis.ColumnMajor;
 
+	export namespace TeamCreateErrorState {
+		export interface PlaceSizeTooLarge extends globalThis.EnumItem {
+			Name: "PlaceSizeTooLarge";
+			Value: 0;
+			EnumType: typeof globalThis.Enum.TeamCreateErrorState;
+		}
+
+		export const PlaceSizeTooLarge: PlaceSizeTooLarge;
+
+		export interface PlaceSizeApproachingLimit extends globalThis.EnumItem {
+			Name: "PlaceSizeApproachingLimit";
+			Value: 1;
+			EnumType: typeof globalThis.Enum.TeamCreateErrorState;
+		}
+
+		export const PlaceSizeApproachingLimit: PlaceSizeApproachingLimit;
+
+		export interface NoError extends globalThis.EnumItem {
+			Name: "NoError";
+			Value: 2;
+			EnumType: typeof globalThis.Enum.TeamCreateErrorState;
+		}
+
+		export const NoError: NoError;
+
+		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.TeamCreateErrorState>;
+	}
+	export type TeamCreateErrorState = TeamCreateErrorState.PlaceSizeTooLarge | TeamCreateErrorState.PlaceSizeApproachingLimit | TeamCreateErrorState.NoError;
+
 	export namespace Technology {
 		export interface Voxel extends globalThis.EnumItem {
 			Name: "Voxel";
@@ -20823,9 +21233,17 @@ declare namespace Enum {
 
 		export const MessageTooLong: MessageTooLong;
 
+		export interface ModerationTimeout extends globalThis.EnumItem {
+			Name: "ModerationTimeout";
+			Value: 9;
+			EnumType: typeof globalThis.Enum.TextChatMessageStatus;
+		}
+
+		export const ModerationTimeout: ModerationTimeout;
+
 		export function GetEnumItems(this: globalThis.Enum): Array<globalThis.Enum.TextChatMessageStatus>;
 	}
-	export type TextChatMessageStatus = TextChatMessageStatus.Unknown | TextChatMessageStatus.Success | TextChatMessageStatus.Sending | TextChatMessageStatus.TextFilterFailed | TextChatMessageStatus.Floodchecked | TextChatMessageStatus.InvalidPrivacySettings | TextChatMessageStatus.InvalidTextChannelPermissions | TextChatMessageStatus.MessageTooLong;
+	export type TextChatMessageStatus = TextChatMessageStatus.Unknown | TextChatMessageStatus.Success | TextChatMessageStatus.Sending | TextChatMessageStatus.TextFilterFailed | TextChatMessageStatus.Floodchecked | TextChatMessageStatus.InvalidPrivacySettings | TextChatMessageStatus.InvalidTextChannelPermissions | TextChatMessageStatus.MessageTooLong | TextChatMessageStatus.ModerationTimeout;
 
 	export namespace TextDirection {
 		export interface Auto extends globalThis.EnumItem {

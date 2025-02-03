@@ -65,7 +65,7 @@ interface Instances extends Services, CreatableInstances {
 
 // GENERATED ROBLOX INSTANCE CLASSES
 
-interface Instance {
+interface Instance extends RBXObject {
 	/**
 	 * **DO NOT USE!**
 	 *
@@ -154,21 +154,6 @@ interface Animator extends Instance {
 	StepAnimations(this: Animator, deltaTime: number): void;
 }
 
-interface AssetService extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AssetService: unique symbol;
-	/**
-	 * Tags: Yields
-	 */
-	CreateMeshPartAsync(this: AssetService, meshId: ContentId, options?: object): MeshPart;
-}
-
 /** The CoreGui is a service used to store Guis created in-game by Roblox for the core user interface found in every game (such as the game menu, the playerlist, the backpack, etc.). It can also be used by [Plugins](https://developer.roblox.com/en-us/api-reference/class/Plugin) in Roblox Studio.
  * 
  * You can use the [StarterGui:SetCoreGuiEnabled](https://developer.roblox.com/en-us/api-reference/function/StarterGui/SetCoreGuiEnabled) and [StarterGui:GetCoreGuiEnabled](https://developer.roblox.com/en-us/api-reference/function/StarterGui/GetCoreGuiEnabled) methods in a [LocalScript](https://developer.roblox.com/en-us/api-reference/class/LocalScript) to enable and disable most elements of the CoreGui. You can also use [PlayerGui:SetTopbarTransparency](https://developer.roblox.com/en-us/api-reference/function/PlayerGui/SetTopbarTransparency) to set the transparency of the top bar.
@@ -220,6 +205,10 @@ interface BaseWrap extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_BaseWrap: unique symbol;
+	/**
+	 * Tags: Hidden
+	 */
+	CageMeshContent: Content;
 	/**
 	 * This property is set up automatically by the Avatar Importer plugin.
 	 * 
@@ -287,6 +276,10 @@ interface WrapLayer extends BaseWrap {
 	 * [CFrame](https://developer.roblox.com/en-us/api-reference/datatype/CFrame) to adjust a binding point for a clothing item mesh. Allows for fine-tuning of clothing items (slight adjustment of position/rotation to get a unique look) in contexts such as community-made avatar editors.
 	 */
 	BindOffset: CFrame;
+	/**
+	 * Tags: Hidden
+	 */
+	ReferenceMeshContent: Content;
 	/**
 	 * AssetID for reference mesh used to define Inner Cage of a 3D object
 	 * 
@@ -369,7 +362,7 @@ interface ChangeHistoryService extends Instance {
 	 * Undos the last action taken, for which there exists a waypoint.
 	 */
 	Undo(this: ChangeHistoryService): void;
-	readonly OnRecordingFinished: RBXScriptSignal<(name: string, displayName: string | undefined, identifier: string | undefined, operationn: Enum.FinishRecordingOperation, finalOptions: object | undefined) => void>;
+	readonly OnRecordingFinished: RBXScriptSignal<(name: string, displayName: string | undefined, identifier: string | undefined, operation: Enum.FinishRecordingOperation, finalOptions: object | undefined) => void>;
 	readonly OnRecordingStarted: RBXScriptSignal<(name: string, displayName: string | undefined) => void>;
 	/**
 	 * Fired when the user reverses the undo command. Waypoint describes the type action that has been redone.
@@ -514,7 +507,7 @@ interface DebuggerManager extends Instance {
 	/**
 	 * Returns a list of [ScriptDebugger](https://developer.roblox.com/en-us/api-reference/class/ScriptDebugger) present in the experience.
 	 */
-	GetDebuggers(this: DebuggerManager): Array<Instance>;
+	GetDebuggers(this: DebuggerManager): Instances;
 	/**
 	 * Resumes the Lua Debugger if it is paused.
 	 */
@@ -1217,7 +1210,7 @@ interface PluginMouse extends Mouse {
 	/**
 	 * Fired when Instances are being selected while the mouse is dragging.
 	 */
-	readonly DragEnter: RBXScriptSignal<(instances: Array<Instance>) => void>;
+	readonly DragEnter: RBXScriptSignal<(instances: Instances) => void>;
 }
 
 interface MultipleDocumentInterfaceInstance extends Instance {
@@ -1569,7 +1562,7 @@ interface WorldRoot extends Model {
 	 * *   If translate stiffness and rotate stiffness are both equal to 0, then the target CFrame will be ignored and physical constraints will be solved for the object at the position where it was.
 	 */
 	IKMoveTo(this: WorldRoot, part: BasePart, target: CFrame, translateStiffness?: number, rotateStiffness?: number, collisionsMode?: CastsToEnum<Enum.IKCollisionsMode>): void;
-	StepPhysics(this: WorldRoot, dt: number, parts?: Array<Instance>): void;
+	StepPhysics(this: WorldRoot, dt: number, parts?: Instances): void;
 }
 
 interface Workspace extends WorldRoot {
@@ -1581,6 +1574,7 @@ interface Workspace extends WorldRoot {
 	 * @deprecated
 	 */
 	readonly _nominal_Workspace: unique symbol;
+	FallHeightEnabled: boolean;
 	/**
 	 * This property determines the height at which falling [BaseParts](https://developer.roblox.com/en-us/api-reference/class/BasePart) (and their ancestor [Models](https://developer.roblox.com/en-us/api-reference/class/Model)) are destroyed.
 	 * 
@@ -2137,7 +2131,7 @@ interface Plugin extends Instance {
 	 * @deprecated
 	 */
 	GetStudioUserId(this: Plugin): number;
-	Intersect(this: Plugin, objects: Array<Instance>): Instance | undefined;
+	Intersect(this: Plugin, objects: Instances): Instance | undefined;
 	/**
 	 * This function returns true if this plugin is currently active, after having been activated via the [Plugin:Activate](https://developer.roblox.com/en-us/api-reference/function/Plugin/Activate) function.
 	 */
@@ -2155,7 +2149,7 @@ interface Plugin extends Instance {
 	/**
 	 * Negates the given parts and returns the resulting NegateOperations.
 	 */
-	Negate(this: Plugin, objects: Array<Instance>): Array<Instance>;
+	Negate(this: Plugin, objects: Instances): Instances;
 	/**
 	 * Used to open the given script instance in an editor window, in Roblox studio, at the given line. If no line is given as an argument it will default to 0.
 	 */
@@ -2182,7 +2176,7 @@ interface Plugin extends Instance {
 	/**
 	 * Separates the given UnionOperations and returns the resulting parts.
 	 */
-	Separate(this: Plugin, objects: Array<Instance>): Array<Instance>;
+	Separate(this: Plugin, objects: Instances): Instances;
 	/**
 	 * Stores a given value for later use under the given key. The value will persist even after studio is closed.
 	 */
@@ -2972,7 +2966,7 @@ interface ScriptDebugger extends Instance {
 	/**
 	 * Returns a list of [DebuggerBreakpoint](https://developer.roblox.com/en-us/api-reference/class/DebuggerBreakpoint) present in the script.
 	 */
-	GetBreakpoints(this: ScriptDebugger): Array<Instance>;
+	GetBreakpoints(this: ScriptDebugger): Instances;
 	/**
 	 * Returns a dictionary of all variables that are present in the global environment of the stack frame, where the keys are the names of the variables, and the values are the actual values of the variables.  
 	 * Each stack frame might see different global variables if function environments are different.
@@ -2997,7 +2991,7 @@ interface ScriptDebugger extends Instance {
 	/**
 	 * Returns a list with all the [DebuggerWatch](https://developer.roblox.com/en-us/api-reference/class/DebuggerWatch) instances for this debugger.
 	 */
-	GetWatches(this: ScriptDebugger): Array<Instance>;
+	GetWatches(this: ScriptDebugger): Instances;
 	/**
 	 * Sets the specified line of the script as a breakpoint. Returns a [DebuggerBreakpoint](https://developer.roblox.com/en-us/api-reference/class/DebuggerBreakpoint) that you can use to manage the breakpoint.
 	 */
@@ -3075,6 +3069,10 @@ interface ScriptDocument extends Instance {
 	/**
 	 * Tags: Yields
 	 */
+	MultiEditTextAsync(this: ScriptDocument, edits: Array<any>): unknown;
+	/**
+	 * Tags: Yields
+	 */
 	RequestSetSelectionAsync(this: ScriptDocument, cursorLine: number, cursorCharacter: number, anchorLine?: number | undefined, anchorCharacter?: number | undefined): unknown;
 	readonly SelectionChanged: RBXScriptSignal<(positionLine: number, positionCharacter: number, anchorLine: number, anchorCharacter: number) => void>;
 	readonly ViewportChanged: RBXScriptSignal<(startLine: number, endLine: number) => void>;
@@ -3093,7 +3091,7 @@ interface ScriptEditorService extends Instance {
 	DeregisterScriptAnalysisCallback(this: ScriptEditorService, name: string): void;
 	FindScriptDocument(this: ScriptEditorService, script: LuaSourceContainer): ScriptDocument;
 	GetEditorSource(this: ScriptEditorService, script: LuaSourceContainer): string;
-	GetScriptDocuments(this: ScriptEditorService): Array<Instance>;
+	GetScriptDocuments(this: ScriptEditorService): Instances;
 	RegisterAutocompleteCallback(this: ScriptEditorService, name: string, priority: number, callbackFunction: Callback): void;
 	RegisterScriptAnalysisCallback(this: ScriptEditorService, name: string, priority: number, callbackFunction: Callback): void;
 	/**
@@ -3158,7 +3156,7 @@ interface Selection extends Instance {
 	 * Tags: NotReplicated
 	 */
 	readonly SelectionThickness: number;
-	Add(this: Selection, instancesToAdd: Array<Instance>): void;
+	Add(this: Selection, instancesToAdd: Instances): void;
 	/**
 	 * Returns an array of currently selected [Instance](https://developer.roblox.com/en-us/api-reference/class/Instance)s in Roblox Studio.
 	 * 
@@ -3168,8 +3166,8 @@ interface Selection extends Instance {
 	 * 
 	 * For changing the current selection, please see [Selection:Set](https://developer.roblox.com/en-us/api-reference/function/Selection/Set).
 	 */
-	Get(this: Selection): Array<Instance>;
-	Remove(this: Selection, instancesToRemove: Array<Instance>): void;
+	Get(this: Selection): Instances;
+	Remove(this: Selection, instancesToRemove: Instances): void;
 	/**
 	 * Sets the currently selected objects in Roblox Studio to [Instance](https://developer.roblox.com/en-us/api-reference/class/Instance)s in the given array.
 	 * 
@@ -3181,7 +3179,7 @@ interface Selection extends Instance {
 	 * table.insert(selected, object)
 	 * Selection:Set(selected)
 	 */
-	Set(this: Selection, selection: Array<Instance>): void;
+	Set(this: Selection, selection: Instances): void;
 	/**
 	 * Fires when the [Instance](https://developer.roblox.com/en-us/api-reference/class/Instance)s selected in Roblox Studio changes.
 	 * 
@@ -3258,7 +3256,7 @@ interface DataModel extends ServiceProvider<Services> {
 	 * 
 	 * Due to this function's security context it can only be used by plugins or the command bar. For an alternative that can be used in [Scripts](https://developer.roblox.com/en-us/api-reference/class/Script) and [LocalScripts](https://developer.roblox.com/en-us/api-reference/class/LocalScript), see [InsertService:LoadAsset](https://developer.roblox.com/en-us/api-reference/function/InsertService/LoadAsset).
 	 */
-	GetObjects(this: DataModel, url: ContentId): Array<Instance>;
+	GetObjects(this: DataModel, url: ContentId): Instances;
 	/**
 	 * This function sets the [DataModel.PlaceId](https://developer.roblox.com/en-us/api-reference/property/DataModel/PlaceId) of the game instance to the given _placeId_.
 	 * 
@@ -3324,7 +3322,8 @@ interface SoundService extends Instance {
 	 */
 	readonly _nominal_SoundService: unique symbol;
 	DefaultListenerLocation: Enum.ListenerLocation;
-	OpenAttenuationCurveEditor(this: SoundService, selectedCurveObjects: Array<Instance>): void;
+	OpenAttenuationCurveEditor(this: SoundService, selectedCurveObjects: Instances): void;
+	OpenDirectionalCurveEditor(this: SoundService, selectedCurveObjects: Instances): void;
 }
 
 /** A StatsItem is an internal measurement item that is created by the engine to benchmark many of the backend components of Roblox.  
@@ -3882,7 +3881,7 @@ interface StudioService extends Instance {
 	 * 
 	 * Tags: Yields
 	 */
-	PromptImportFiles(this: StudioService, fileTypeFilter?: Array<any>): Array<Instance>;
+	PromptImportFiles(this: StudioService, fileTypeFilter?: Array<any>): Instances;
 }
 
 interface StudioTheme extends Instance {
