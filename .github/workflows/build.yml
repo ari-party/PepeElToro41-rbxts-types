@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     if: contains(github.event.commits[0].message, '[skip ci]') == false &&
-        github.repository == 'roblox-ts/types' &&
+        github.repository == 'ari-party/PepeElToro41-rbxts-types' &&
         github.ref == 'refs/heads/master'
 
     runs-on: ubuntu-latest
@@ -41,14 +41,14 @@ jobs:
           if ! git diff-index --quiet HEAD --; then
             echo "Generated files changed!"
             git commit -m "Update generated files [skip ci]"
-            git push https://osyrisrblx:${{ secrets.github_token }}@github.com/roblox-ts/types.git HEAD:master
+            git push https://ari-party:${{ secrets.github_token }}@github.com/ari-party/PepeElToro41-rbxts-types.git HEAD:master
           fi
 
       - name: Copy Files to Deploy Branch and Publish
         run: |
           cd ..
 
-          git clone --depth=50 --branch=deploy https://osyrisrblx:${{ secrets.github_token }}@github.com/roblox-ts/types.git deploy
+          git clone --depth=50 --branch=deploy https://ari-party:${{ secrets.github_token }}@github.com/ari-party/PepeElToro41-rbxts-types.git deploy
           mkdir -p deploy/include
           rm -rf deploy/include/*
           cp -r types/include/* deploy/include
@@ -67,16 +67,8 @@ jobs:
             fi
 
             npm version patch -m "package.json version bump to %s [skip ci]"
-            git push https://osyrisrblx:${{ secrets.github_token }}@github.com/roblox-ts/types.git HEAD:deploy
+            git push https://ari-party:${{ secrets.github_token }}@github.com/ari-party/PepeElToro41-rbxts-types.git HEAD:deploy
             npm publish
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-
-      - name: Send Build Failure Notification
-        uses: rjstone/discord-webhook-notify@v1
-        if: failure()
-        with:
-            severity: error
-            details: Build Failed!
-            webhookUrl: ${{ secrets.WEBHOOK_URL }}
